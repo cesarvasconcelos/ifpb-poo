@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="projeto" default="jar">
+	<description>Compiles, packages and runs a simple program</description>
+
+	<property name="bin.dir" value="bin"/>
+	<property name="dist.dir" value="dist"/>
+	<property name="doc.dir" value="doc"/>
+
+	<target name="mkdir" description="Creates a directory structure needed">
+		<mkdir dir="${bin.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${doc.dir}" />
+	</target>
+
+	<!-- a task ira compilar arquivos a partir de um diretorio inicial e seus sub-diretorios;
+		mesmo com os futuros pacotes que serao adicionados no projeto.  
+		ela tambem ira verificar se arquivos realmente precisam ser compilados ou nao 
+	-->
+	<target name="compile" depends="mkdir" description="Compiles the source code">
+		<javac srcdir="src" destdir="${bin.dir}" includeantruntime="false" />
+	</target>
+
+	<target name="javadoc" depends="compile" description="Generates the javadoc from the source code">
+		<javadoc destdir="${doc.dir}" sourcepath="src" />
+	</target>
+
+	<target name="jar" depends="compile" description="Creates the JAR file">
+		<jar destfile="dist/app.jar" basedir="${bin.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="br.edu.ifpb.PrimeiroPrograma" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean" depends="mkdir" description="Removes the temporary directories used">
+		<delete dir="${bin.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${doc.dir}" />
+	</target>
+
+	<target name="execute" depends="compile" description="Runs the program">
+		<java classname="br.edu.ifpb.PrimeiroPrograma" classpath="${bin.dir}" />
+	</target>
+</project>
