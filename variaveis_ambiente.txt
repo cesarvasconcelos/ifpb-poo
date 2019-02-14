@@ -1,0 +1,7 @@
+export JAVA_HOME=/usr/local/jvm/java-8-sun
+export CLASSPATH=.
+export ANT_HOME=/usr/local/ant
+export MAVEN_HOME=/usr/local/maven
+export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$MAVEN_HOME/bin:$PATH
+export MANPATH=$JAVA_HOME/man:$MANPATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
