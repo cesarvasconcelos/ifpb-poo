@@ -1,0 +1,136 @@
+Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Sacramento, CA, 475516
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Long Beach, CA, 467892
+Long Beach, CA, 467892
+Kansas, MO, 464310
+Mesa, AZ, 452084
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Long Beach, CA, 467892
+Kansas, MO, 464310
+Mesa, AZ, 452084
+Virginia Beach, VA, 447021
+Atlanta, GA, 443775
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Sacramento, CA, 475516
+Long Beach, CA, 467892
+Kansas, MO, 464310
+Mesa, AZ, 452084
+Virginia Beach, VA, 447021
+Atlanta, GA, 443775
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Sacramento, CA, 475516
+Long Beach, CA, 467892
+Kansas, MO, 464310
+Mesa, AZ, 452084
+Virginia Beach, VA, 447021
+Atlanta, GA, 443775
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
+Las Vegas, NV, 596424
+Albuquerque, NM, 555417
+Tucson, AZ, 524295
+Fresno, CA, 505882
+Sacramento, CA, 475516
+Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916Seattle, WA, 634535
+Denver, CO, 634265
+Washington, DC, 632323
+Nashville-Davidson, TN, 624496
+Baltimore, MD, 621342
+Louisville/Jefferson County, KY, 605110
+Portland, OR, 603106
+Oklahoma, OK, 599199
+Milwaukee, WI, 598916
