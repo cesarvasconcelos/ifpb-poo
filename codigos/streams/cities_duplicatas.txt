@@ -125,7 +125,8 @@ Baltimore, MD, 621342
 Louisville/Jefferson County, KY, 605110
 Portland, OR, 603106
 Oklahoma, OK, 599199
-Milwaukee, WI, 598916Seattle, WA, 634535
+Milwaukee, WI, 598916
+Seattle, WA, 634535
 Denver, CO, 634265
 Washington, DC, 632323
 Nashville-Davidson, TN, 624496
