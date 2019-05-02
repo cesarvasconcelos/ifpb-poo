@@ -33,3 +33,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# maven & vscode directories
+.maven
+maven
+.vscode
+vscode
