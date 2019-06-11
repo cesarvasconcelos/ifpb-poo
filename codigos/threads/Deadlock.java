@@ -42,9 +42,16 @@ public class Deadlock {
         Lock garfoB = new ReentrantLock();
         Lock garfoC = new ReentrantLock();
 
-        Thread f1 = new Filósofo( "Sócrates", garfoA, garfoB  );
-        Thread f2 = new Filósofo( "Platão", garfoB, garfoC  );
-        Thread f3 = new Filósofo( "Aristóteles", garfoC, garfoA  );
+        Thread f1 = new Filósofo( "Sócrates", garfoA, garfoB  ); // tenta A, depois B
+        Thread f2 = new Filósofo( "Platão", garfoB, garfoC  ); // tenta B, depois C
+        Thread f3 = new Filósofo( "Aristóteles", garfoC, garfoA  ); // tenta C, depois A
+
+        // Uma técnica normalmente boa para evitar deadlocks é fazer com o lock
+        // seja acessado *na mesma ordem* por todas as threads.
+        // no caso abaixo, a prioridade agora é garfoA, depois B e C.
+        // logo, f3 tentará acessar A e depois C (em vez de C seguido de A)
+        // Thread f3 = new Filósofo( "Aristóteles", garfoA, garfoC  );
+
         f1.start();
         f2.start();
         f3.start();
