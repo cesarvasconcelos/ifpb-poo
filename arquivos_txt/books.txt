@@ -1,0 +1,10 @@
+128;The Adventures of Duck and Scorpion;Mary Poppins;ebook;10.99
+35;The Return of Horse and Spider;Seth Maven;hardback;19.99
+12;More Fun with Rat and Goose;Richard Luke;paperback;12.99
+28;Parrot and Pigeon on Holiday;Sir Quackalot;ebook;11.99
+34;The Return of Eagle and Whale; Ana Montana;hardback;19.99
+41;The Adventures of Falcon and Horse;John Livet;hardback;18.99
+56;My Friend is a Duck;Ana Parrot;paperback;14.99
+62;Annotated Notes on the Duck and Goose chronicles;Prof. Macaw;ebook;8.99
+71;Cow and Goose Cheat Sheet for Students; Cavin Parrot;ebook;5.99
+83;Fish and Goose an allegory for modern times;Borgen Ingent;paperback;59.99
