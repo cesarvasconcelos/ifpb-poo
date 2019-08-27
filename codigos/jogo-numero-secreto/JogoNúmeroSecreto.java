@@ -12,10 +12,11 @@ public class JogoNúmeroSecreto {
 
     public JogoNúmeroSecreto( int tentativas )
     {
-        this.tentativas = tentativas > 0 ? tentativas : DEFAULT_TENTATIVAS;
+        this.tentativas = ( tentativas >= LIMITE_INICIAL &&
+                            tentativas <= LIMITE_FINAL ) ? tentativas : DEFAULT_TENTATIVAS;
         this.gerarNúmeroSecreto();
     }
-
+    
     private void gerarNúmeroSecreto()
     {
         // número secreto entre 1 e 6
