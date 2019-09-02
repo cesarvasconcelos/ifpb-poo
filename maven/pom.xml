@@ -8,8 +8,9 @@
     <artifactId>my-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Nome do projeto</name>
+    <url>http://www.minhaempresa.com/site</url>
     <description>A very important project here</description>
-
     <packaging>jar</packaging>
 
     <properties>
