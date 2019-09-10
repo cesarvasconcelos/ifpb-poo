@@ -1,38 +1,46 @@
-public class Professor extends Funcionário {
-    private int numHorasDisciplinas;
+package br.edu.ifpb;
 
-    // default
+public class Professor extends Funcionário{
+    private int númHorasDisciplinas;
+
     public Professor()
     {
         super();
-        this.setNumHorasDisciplinas( 2 );
-    }
-    // com parâmetros
-    public Professor( int matrícula, String nome, double salárioBase, int númeroHoras )
-    {
-        super( matrícula, nome, salárioBase );
-        this.setNumHorasDisciplinas( númeroHoras );
+        this.setNúmHorasDisciplinas( 8 );
     }
 
-    public int getNumHorasDisciplinas()
+    public Professor( int matrícula,
+                      String nome,
+                      double salário,
+                      int numHoras )
     {
-        return numHorasDisciplinas;
+        super( matrícula, nome, salário );
+        this.setNúmHorasDisciplinas( numHoras );
     }
 
-    public void setNumHorasDisciplinas( int numHorasDisciplinas )
+    public int getNúmHorasDisciplinas()
     {
-        this.numHorasDisciplinas = numHorasDisciplinas;
+        return númHorasDisciplinas;
     }
 
-    @Override
-    public double getSalário()
+    public void setNúmHorasDisciplinas( int númHorasDisciplinas )
     {
-        return super.getSalário() + 2 * getNumHorasDisciplinas();
+        this.númHorasDisciplinas = númHorasDisciplinas;
     }
 
     @Override
     public String toString()
     {
-        return super.toString() + ", Horas: " + getNumHorasDisciplinas();
+        return super.toString() +
+               " NúmHoras: " + this.númHorasDisciplinas +
+               " Salário Base (R$): " + super.getSalário();
     }
-}
+
+    // @Override
+    public double getSalário()
+    {
+        return super.getSalário() +
+               2 * númHorasDisciplinas;
+    }
+} // classe Professor
+

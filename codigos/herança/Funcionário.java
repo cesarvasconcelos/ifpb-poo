@@ -1,21 +1,28 @@
+package br.edu.ifpb;
+
 public class Funcionário extends Object {
-
-    private int matrícula;
+    // atributos
+    private int    matrícula;
     private String nome;
-    private double salárioBase;
+    private double salário;
 
+    // construtores sobrecarregados
     public Funcionário()
     {
-        this( 0, "--- sem nome ---", 900 );
+        // definir valores-padrão para cada atributo
+        this( 0, "-- sem nome --", 890.50 );
     }
 
-    public Funcionário( int matrícula, String nome, double salárioBase )
+    public Funcionário( int matrícula, String nome, double salário )
     {
-        setMatrícula( matrícula );
-        setNome( nome );
-        setSalário( salárioBase );
+        // sabe como inicializar cada atributo mediante argumentos
+        super(); // Object....
+        this.setMatrícula( matrícula );
+        this.setNome( nome );
+        this.setSalário( salário );
     }
 
+    // métodos (interface pública/faz?)
     public int getMatrícula()
     {
         return matrícula;
@@ -38,20 +45,22 @@ public class Funcionário extends Object {
 
     public double getSalário()
     {
-        return salárioBase;
+        return salário;
     }
 
     public void setSalário( double salário )
     {
-        this.salárioBase = salário;
+        this.salário = salário;
     }
 
     @Override
     public String toString()
     {
-        return
-               "matrícula=" + getMatrícula() +
-               ", nome='" + getNome() + '\'' +
-               ", salárioBase=" + getSalário();
+        return "Matrícula: " +
+               this.getMatrícula() +
+               " Nome: " +
+               this.getNome() +
+               " Salário (R$):" +
+               this.getSalário();
     }
-}
+} // classe
