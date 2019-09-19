@@ -22,6 +22,8 @@ public class Calculadora_05 {
 		Calculadora_05 c = new Calculadora_05();
 		Scanner s = new Scanner( System.in );
 
+		// try-with-resources... Java SE 7
+		// try (Scanner s = new Scanner( System.in );)
 		try
 		{
 			// obter os dados
