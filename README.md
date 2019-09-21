@@ -9,7 +9,7 @@ Neste repositório, encontram-se exemplos de trechos de código utilizados em sa
 ## Material de Referência
 
 Os principais materiais de estudo usados na disciplina são os livros:
-[Java How to Program Early Objects](materiais/jhtp.pdf), [Core Java Volume I Fundamentals](http://horstmann.com/corejava/index.html) e [Java Tutorial](https://docs.oracle.com/javase/tutorial/). Também se recomenda o 
+[Java How to Program Early Objects](materiais/jhtp.pdf), [Head First Java 2 ed.](http://ikucukkoc.baun.edu.tr/lectures/EMM3115/Head_First_Java.pdf), [Core Java Volume I Fundamentals](http://horstmann.com/corejava/index.html) e [Java Tutorial](https://docs.oracle.com/javase/tutorial/). Também se recomenda o 
 [Head First Object-Oriented Analysis and Design](https://www.amazon.com/Head-First-Object-Oriented-Analysis-Design/dp/0596008678).
 Outras fontes de leitura serão indicadas pelo professor.
 
