@@ -6,50 +6,85 @@ import org.junit.Test;
 public class UniversidadeTest
 {
     @Test
-    public void testCadastroFuncionárioDeveFuncionar()
+    public void testAdicionarDeveFuncionar()
     {
-        // Dado que...
+        // Dado que (pré-condições)
         Universidade u = new Universidade();
+        Professor p1 = new Professor( 555, "ana",
+                                      1200.99, 20 );
+        Gerente g1 = new Gerente( 777, "pedro",
+                                      3000.99, 500 );
 
-        // Quando....
-        Professor p1 =
-                new Professor(467, "ana",
-                              1200, 20 );
-        Gerente g1 =
-                new Gerente(332, "pedro",
-                            3000, 500.99 );
-        boolean resultadoProf = u.adicionarFuncionário( p1 );
+        // Quando
+        boolean resultadoProf = u.adicionarFuncionário( p1  );
         boolean resultadoGer = u.adicionarFuncionário( g1 );
 
-        // Então...
-        // p1 e g1 foi cadastrado com sucesso
+        // Então (verifique)
         Assert.assertTrue( resultadoProf );
         Assert.assertTrue( resultadoGer );
     }
 
     @Test
-    public void testCadastroFuncionárioNãoDeveFuncionar()
+    public void testAdicionarNãoDeveFuncionar()
     {
-        // Dado que...
+        // Dado que (pré-condições)
         Universidade u = new Universidade();
 
-        // Quando....
-        Professor p1 =
-                new Professor(467, "ana",
-                              1200, 20 );
-        Professor cloneP1 =
-                new Professor(467, "ana",
-                              1200, 20 );
+        Professor p1 = new Professor( 555, "ana",
+                                      1200.99, 20 );
 
-        Professor pNull = null;
+        Professor pClone = new Professor( 555, "ana",
+                                      1200.99, 20 );
 
-        boolean resultadoProf = u.adicionarFuncionário( p1 );
-        boolean resultadoClone = u.adicionarFuncionário( p1 );
-        boolean resultadoPNull = u.adicionarFuncionário( pNull );
+        Gerente g1 = new Gerente( 777, "pedro",
+                                  3000.99, 500 );
+        Gerente gNull  = null;
 
-        // Então...
+        // Quando
+        boolean resultadoProf = u.adicionarFuncionário( p1  ); // ok
+        boolean resultadoGer = u.adicionarFuncionário( g1 );  // ok
+        boolean resultadoProfClone = u.adicionarFuncionário( pClone  ); // não
+        boolean resultadoGNull = u.adicionarFuncionário( gNull ); // não
+
+        // Então (verifique)
         Assert.assertTrue( resultadoProf );
-        Assert.assertFalse( resultadoClone );
-        Assert.assertFalse( resultadoPNull );
+        Assert.assertTrue( resultadoGer );
+        Assert.assertFalse( resultadoProfClone );
+        Assert.assertFalse( resultadoGNull );
+    }
+
+    @Test
+    public void testBuscaDeveFuncionar()
+    {
+        // Dado que (pré-condições)
+        Universidade u = new Universidade();
+
+        Professor p1 = new Professor( 555, "ana",
+                                      1200.99, 20 );
+        u.adicionarFuncionário( p1 );
+
+        // Quando
+        Funcionário funcionário = u.buscarFuncionário( 555 );
+
+        // Então
+        Assert.assertNotNull( funcionário );
+        Assert.assertEquals( funcionário.getMatrícula(), p1.getMatrícula() );
+    }
+
+    @Test
+    public void testBuscaNãoDeveFuncionar()
+    {
+        // Dado que (pré-condições)
+        Universidade u = new Universidade();
+
+        Professor p1 = new Professor( 555, "ana",
+                                      1200.99, 20 );
+
+        // Quando
+        u.adicionarFuncionário( p1 );
+        Funcionário funcionário = u.buscarFuncionário( 999 );
+
+        // Então
+        Assert.assertNull( funcionário );
     }
 }
