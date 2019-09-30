@@ -10,11 +10,11 @@ public class Problema_01 {
             return;
         }
 
-        double média = 0;
-        for ( String entrada : args )  média += Double.parseDouble( entrada );
+        double soma = 0;
+        for ( String entrada : args )  soma += Double.parseDouble( entrada );
 
         System.out.printf( "Entradas: %s", Arrays.toString( args ) );
-        System.out.printf( "%nA média: %.2f%n", média );
+        System.out.printf( "%nA soma: %.2f%n", soma );
     }
 }
 

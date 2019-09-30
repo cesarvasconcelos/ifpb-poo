@@ -9,13 +9,13 @@ public class TryCatch_02 {
             return;
         }
 
-        double média = 0;
+        double soma = 0;
         try
         {
-            for ( String s: args )  média += Double.parseDouble( s );
+            for ( String s: args )  soma += Double.parseDouble( s );
 
             System.out.printf( "Entradas: %s", Arrays.toString( args ) );
-            System.out.printf( "%nA média: %.2f%n", média );
+            System.out.printf( "%nA soma: %.2f%n", soma );
         } catch ( NumberFormatException nfe )
         {
             System.err.println( "Erro! Argumento(s) de entrada inválido(s)." );
