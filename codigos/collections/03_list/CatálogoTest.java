@@ -48,11 +48,15 @@ public class CatálogoTest {
     public void testNãoDeveSubstituirCamisa()
     {
         catálogo.adicionarCamisa( camisaInfantil );
-        catálogo.adicionarCamisa( camisaSocial );
 
         // testar substituição de camisa *não* existente
-        catálogo.substituir( camisaSocial, camisaGestante );
-        assertThat( catálogo, not( contains( camisaSocial ) )  );
+        catálogo.substituir( camisaGestante, camisaSocial );
+        catálogo.substituir( camisaGestante, camisaInfantil );
+
+        assertThat( catálogo, not( contains( camisaGestante ) ) );
+        assertThat( catálogo, not( contains( camisaSocial ) ) );
+
+        assertThat( catálogo, contains( camisaInfantil ) );
     }
 
     @Test
