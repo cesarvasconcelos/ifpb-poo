@@ -14,7 +14,7 @@ public class CatálogoTest {
     private Catálogo catálogo = new Catálogo();
 
     @Test
-    public void testShouldAdicionarCamisa()
+    public void testDeveAdicionarCamisa()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
@@ -24,7 +24,7 @@ public class CatálogoTest {
     }
 
     @Test
-    public void testShouldRemoverCamisa()
+    public void testDeveRemoverCamisa()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
@@ -35,7 +35,7 @@ public class CatálogoTest {
     }
 
     @Test
-    public void testShouldSubstituir()
+    public void testDeveSubstituirCamisa()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
@@ -45,7 +45,7 @@ public class CatálogoTest {
         assertThat( catálogo, contains( camisaGestante, camisaSocial ) );
     }
     @Test
-    public void testShouldNotSubstituir()
+    public void testNãoDeveSubstituirCamisa()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
@@ -56,7 +56,7 @@ public class CatálogoTest {
     }
 
     @Test
-    public void testShouldGetCamisasExtraGrandes()
+    public void testDeveRetornarCamisasExtraGrandes()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
@@ -66,7 +66,7 @@ public class CatálogoTest {
     }
 
     @Test
-    public void testShouldNotGetCamisasExtraGrandes()
+    public void testNãoDeveRetornarCamisasExtraGrandes()
     {
         catálogo.adicionarCamisa( camisaInfantil );
         catálogo.adicionarCamisa( camisaSocial );
