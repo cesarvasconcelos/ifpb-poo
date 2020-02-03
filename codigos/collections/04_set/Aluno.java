@@ -55,6 +55,11 @@ public class Aluno implements Comparable<Aluno> {
     }
 
 
+    // importante: se houvesse um método equals() nesta classe,
+    // ele deveria estar alinhado ao compareTo() abaixo. Core Java:
+    // The documentation of the Comparable interface suggests that
+    // the compareTo method should be compatible with the equals method.
+    // That is, x.compareTo(y) should be zero exactly when x.equals(y).
     @Override
     public int compareTo( Aluno outro )
     {
