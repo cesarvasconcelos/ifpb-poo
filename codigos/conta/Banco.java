@@ -1,44 +1,34 @@
-package br.com.bb;
+package br.com.banco;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Banco {
-    private List<Conta> listaContas = null;
+    private ArrayList<Conta> listaContas = null;
 
     // construtor
-    Banco()
+    public Banco()
     {
-        listaContas = new LinkedList<>();
+        listaContas = new ArrayList<>();
     }
 
     public boolean cadastrarConta( int número,
                                    String titular,
                                    double saldoInicial ){
-
-        // verificar se conta existe
-        for( Conta c : listaContas ) // for-each
-            if( c.getNúmero() == número )
-                return false; // já existe!
-
-        //for( int i = 0; i < listaContas.size(); i++)
-        //    if( listaContas.get( i ).getNúmero() == número )
-        //        return false; // já existe!
-
-        // senão existir, devo criar a conta, cadastrar na lista
-        // e retornar true
-        Conta temp = new Conta( número, titular, saldoInicial );
-        return listaContas.add( temp );
-
+        if( buscarConta( número ) ) return false;
+        return listaContas.add( new Conta( número, titular, saldoInicial ) );
     }
 
     public int quantidadeContas()
     {
-        return listaContas.size();
+        return this.listaContas.size();
     }
 
-    public boolean buscarConta( int número )
+    public boolean buscarConta( int umNúmero )
     {
-        return false; // falta implementar com Test-driven development
+        if( quantidadeContas() > 0 )
+            for( Conta cadaConta : listaContas )
+                if( cadaConta.getNúmero() == umNúmero ) return true;
+
+        return false;
     }
 }

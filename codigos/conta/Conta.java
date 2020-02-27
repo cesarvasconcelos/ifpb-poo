@@ -1,4 +1,4 @@
-package br.com.bb;
+package br.com.banco;
 
 public class Conta
 {
@@ -20,6 +20,7 @@ public class Conta
         depositar( saldoInicial );
     }
 
+    // métodos
     public void sacar( double umaQuantia ){
         if( umaQuantia > 0 && umaQuantia <= this.saldo )
             this.saldo -= umaQuantia;

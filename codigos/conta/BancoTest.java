@@ -1,27 +1,52 @@
-package br.com.bb;
+package br.com.banco;
+
 
 import org.junit.Assert;
 import org.junit.Test;
 
 public class BancoTest {
+
     @Test
-    public void testCadastrarConta()
+    public void testCadastroContasDeveriaFuncionar()
     {
-        // conta: número, titular, saldo
-        // banco: para cadastrar a conta
-        Banco b = new Banco();
-        Assert.assertEquals( 0, b.quantidadeContas() );
+        Banco banco = new Banco();
+        // garantir que banco não tem ainda nenhuma conta
+        Assert.assertEquals( 0 , banco.quantidadeContas() );
 
-        // funcionamento normal
-        Assert.assertTrue( b.cadastrarConta( 777, "Pedro", 112.90 ) );
-        Assert.assertEquals( 1, b.quantidadeContas() );
+        banco.cadastrarConta( 555, "ana", 1200.99 );
+        Assert.assertEquals( 1 , banco.quantidadeContas() );
+    }
 
-        Assert.assertTrue( b.cadastrarConta( 888, "Ana", 2300.99) );
-        Assert.assertEquals( 2, b.quantidadeContas() );
+    @Test
+    public void testCadastroDeContasDuplicatasNãoDeveriaFuncionar()
+    {
+        Banco banco = new Banco();
 
-        // caso especial: caso haja duplicatas
-        Assert.assertFalse( b.cadastrarConta( 777, "Pedro", 112.90 ) );
-        Assert.assertEquals( 2, b.quantidadeContas() );
+        Assert.assertEquals( 0 , banco.quantidadeContas() );
+        banco.cadastrarConta( 555, "ana", 1200.99 );
+        Assert.assertEquals( 1 , banco.quantidadeContas() );
 
+        banco.cadastrarConta( 555, "ana", 1200.99 );
+        Assert.assertEquals( 1 , banco.quantidadeContas() );
+    }
+
+    @Test
+    public void testBuscaContaExistenteDeveriaFuncionar()
+    {
+        Banco banco = new Banco();
+        banco.cadastrarConta( 555, "ana", 1200.99 );
+
+        Assert.assertTrue( banco.buscarConta( 555 ) ); // V/F
+    }
+
+
+    @Test
+    public void testBuscaContaNãoExisteNãoDeveFuncionar()
+    {
+        Banco banco = new Banco();
+        Assert.assertFalse( banco.buscarConta( 555 ) ); // V/F
+
+        banco.cadastrarConta( 555, "ana", 1200.99 );
+        Assert.assertFalse( banco.buscarConta( 999 ) ); // V/F
     }
 }

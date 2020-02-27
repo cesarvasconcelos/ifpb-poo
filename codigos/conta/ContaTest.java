@@ -1,4 +1,4 @@
-package br.com.bb;
+package br.com.banco;
 
 import org.junit.Assert;
 import org.junit.Test;
