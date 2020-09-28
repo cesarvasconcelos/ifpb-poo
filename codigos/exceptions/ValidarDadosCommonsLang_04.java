@@ -1,5 +1,6 @@
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -22,18 +23,18 @@ public class ValidarDadosCommonsLang_04 {
         return scanner.nextLine();
     }
 
-    private static void imprimirDados( String nome, byte idade, double salario )
+    private static void imprimirDados( String nome, byte idade, double salário )
     {
         NumberFormat nf = NumberFormat.getCurrencyInstance( new Locale( "pt", "BR" ) );
-        System.out.printf( "Nome= %s Idade= %d Salário= %s", nome, idade, nf.format( salario ) );
+        System.out.printf( "Nome= %s Idade= %d Salário= %s", nome, idade, nf.format( salário ) );
     }
 
     public static void main( String[] args )
     {
         String nome = null;
         byte idade = 0;
-        double salario = 0.0;
-        boolean ok = false;
+        BigDecimal salário = BigDecimal.ZERO;
+        boolean capturaDosDadosOK = false;
         Scanner scanner = new Scanner( System.in );
 
         do
@@ -46,22 +47,34 @@ public class ValidarDadosCommonsLang_04 {
 
                 idade = Byte.parseByte( lerEntrada( "Entre com a idade: ", scanner ) );
 
-                salario = Double.parseDouble( lerEntrada( "Entre com o salário: ", scanner ) );
+                salário = new BigDecimal( lerEntrada( "Entre com o salário: ", scanner ) ).setScale( 2 );
 
-                scanner.close(); // encerrando o Scanner
-                ok = true; // se chegou até aqui, não houve exceção
+                capturaDosDadosOK = true; // se chegou até aqui, não houve exceção
+
+                try{
+                    // este try interno serve apenas para fechar o scanner;
+                    // coloquei aqui para fins didáticos pois
+                    // erros no close() serão reportados no último bloco catch (Exception e)
+                    // vamos refatorar para try-with-resources, para eliminar o close() e o catch!
+                }finally
+                {
+                    scanner.close(); // encerrando o Scanner (tudo isso seria evitado com try-with-resources)
+                }
             } catch ( NumberFormatException nfe )
             {
                 System.out.println( "\t>> Você não está digitando dados numéricos corretamente. Vamos começar novamente." );
             } catch ( NomeInválidoException nie )
             {
                 System.out.printf( "\t>> O nome \'%s\' digitado %s\n", nome, "é inválido. Vamos começar novamente." );
+            }catch ( Exception e ){
+                System.out.printf( "\t>> Erro desconhecido: " + e.getMessage() );
+                e.printStackTrace();
             }
-        } while ( !ok );
 
-        imprimirDados( nome, idade, salario );
+        } while ( !capturaDosDadosOK );
+
+        imprimirDados( nome, idade, salário.doubleValue() );
     }
-
 }
 
 // note como é simples criar sua própria classe de exceção
