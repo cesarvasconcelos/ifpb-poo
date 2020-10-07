@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 
-class ClienteNaoEncontrado extends Exception {
-	public ClienteNaoEncontrado( String mensagem )
+class ClienteNaoEncontradoException extends Exception {
+	public ClienteNaoEncontradoException( String mensagem )
 	{
 		super( mensagem );
 	}
@@ -19,21 +19,22 @@ class ClienteNaoEncontrado extends Exception {
 
 public class Chaining_06 {
 
-	public void buscarCliente() throws ClienteNaoEncontrado
+	public void buscarCliente() throws SQLException
 	{
 		try
 		{
-			// suponha que bd.executeQuery gerou SQlException. Esta é uma exceção de baixo
-			// nível e que poderia relevar informações de que a abstração usa bd em vez de arquivos.
+			// suponha que o acesso ao banco gerou SQlException. Esta é uma exceção de baixo
+			// nível e que poderia relevar informações demais de que a abstração usa bd em vez de arquivos, e.g.
 			throw new SQLException( "Erro no banco!" );
-		} catch ( SQLException e )
+		} catch ( SQLException objSqlException )
 		{
-			e.printStackTrace( System.out ); // low-level exception
+			objSqlException.printStackTrace( System.out ); // low-level exception
+			throw objSqlException; // re-lançando
 		}
 
 	}
 
-	public void buscarClienteUsandoChaining() throws ClienteNaoEncontrado
+	public void buscarClienteUsandoChaining() throws ClienteNaoEncontradoException
 	{
 		try
 		{
@@ -41,7 +42,7 @@ public class Chaining_06 {
 			// neste caso, posso converter uma exceção em outra, perdendo a original
 			// ou posso fazer "wrapping/chaining" de uma exceção em outra, sem perder a original
 			throw new SQLException( "Erro no banco!" );
-		} catch ( SQLException sql )
+		} catch ( SQLException objSqlException )
 		{
 			// throw new ClienteNaoEncontrado( "Cliente não encontrado!" ); // acabei de perder a SQlException :(
 			// na conversão de uma exceção (baixo nível) para outra (alto nível, neste caso),
@@ -49,8 +50,8 @@ public class Chaining_06 {
 			// de origem. Isso pode dificultar o debug
 
 			// ou posso ter o melhor dos dois mundos, com chaining
-			var cne = new ClienteNaoEncontrado( "Cliente não encontrado!" ); // Java 10
-			cne.initCause( sql ); // chaining: vai pro final da fila
+			var cne = new ClienteNaoEncontradoException( "Cliente não encontrado!" ); // Java 10
+			cne.initCause( objSqlException ); // chaining: vai pro final da fila
 			throw cne; // assim consigo fazer wrap e ainda guardar SQLException como a exceção real de origem
 			// isso permite gerar exceções de alto nível em subsistemas sem perder detalhes da
 			// exceção de baixo nível
@@ -64,14 +65,26 @@ public class Chaining_06 {
 		try
 		{
 			Chaining_06 c = new Chaining_06();
-			// c.buscarCliente();
-			c.buscarClienteUsandoChaining();
-		} catch ( ClienteNaoEncontrado cne )
+			c.buscarCliente();
+		} catch ( SQLException objSqlException )
 		{
-			cne.printStackTrace( System.out );
-			Throwable original = cne.getCause(); // SQLException (a causa original de baixo nível)
-			System.out.println( original.getMessage() ); // Erro no banco!
+			// SQLException (a causa original de baixo nível)
+			System.out.println( objSqlException.getMessage() ); // Erro no banco!
+			// objSqlException.printStackTrace( System.out ); mesma coisa que anterior
 		}
+
+
+		// try
+		// {
+		// 	Chaining_06 c = new Chaining_06();
+		// 	// c.buscarCliente();
+		// 	c.buscarClienteUsandoChaining();
+		// } catch ( ClienteNaoEncontradoException cne )
+		// {
+		// 	cne.printStackTrace( System.out );
+		// 	Throwable original = cne.getCause(); // SQLException (a causa original de baixo nível)
+		// 	System.out.println( original.getMessage() ); // Erro no banco!
+		// }
 
 		/*
 		 * (sem chaining) saida sera apenas:
