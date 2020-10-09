@@ -16,6 +16,14 @@
 //          do something with the resource
 //      }
 // A condição é que o recurso implemente a interface AutoCloseable
+// E por que não Closeable? (https://stackoverflow.com)
+// The reason is simple: Closeable.close() throws IOException. 
+// A lot of close() methods that could benefit of try-with-resources
+// throw other checked exceptions (eg java.sql.Connection.close() 
+// so AutoCloseable.close() throws Exception. Changing the existing 
+// Closeable contract would break all existing applications/library 
+// relying on the contract that close() only throws IOException 
+// and not all (checked) exceptions
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
