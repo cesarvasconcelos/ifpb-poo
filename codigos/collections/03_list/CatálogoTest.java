@@ -1,4 +1,9 @@
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.Iterator;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -11,7 +16,19 @@ public class CatálogoTest {
     static final Camisa camisaGestante =
             new Camisa( "Gestante modelo bata com manga curta e foto do bebê", TAMANHO_CAMISA_EN.XL );
 
-    private Catálogo catálogo = new Catálogo();
+    private Catálogo catálogo;
+
+    @Before
+    public void setUp()
+    {
+        this.catálogo = new Catálogo();
+    }
+
+    @After
+    public void tearDown()
+    {
+        this.catálogo.removerTodasCamisas();
+    }
 
     @Test
     public void testDeveAdicionarCamisa()
@@ -76,6 +93,17 @@ public class CatálogoTest {
         catálogo.adicionarCamisa( camisaSocial );
 
         assertThat( catálogo.getCamisasExtraGrandes(), emptyIterable() );
+    }
+
+    @Test
+    public void testDeveRemoverTodasCamisas()
+    {
+        catálogo.adicionarCamisa( camisaInfantil );
+        catálogo.adicionarCamisa( camisaSocial );
+
+        catálogo.removerTodasCamisas();
+
+        assertThat( catálogo.getCamisas(), empty() );
     }
 }
 // pom.xml:

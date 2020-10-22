@@ -66,4 +66,9 @@ public class Catálogo implements Iterable<Camisa> {
             // note o método para obtenção de sub-lista
             return camisas.subList( indexSeparação, camisas.size() );
     }
+
+    public void removerTodasCamisas()
+    {
+        this.camisas.clear();
+    }
 }
