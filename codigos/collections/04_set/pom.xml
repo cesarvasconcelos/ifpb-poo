@@ -7,22 +7,22 @@
     <groupId>br.edu.ifpb</groupId>
     <artifactId>collections</artifactId>
     <version>1.0-SNAPSHOT</version>
+    
+    <name>collections</name>
+    <url>http://www.minhaempresa.com/site</url>
+    <description>Um projeto para demonstrar o uso de coleções</description>
+    <packaging>jar</packaging>
+
     <properties>
-        <!--<maven.compiler.source>1.8</maven.compiler.source>-->
-        <!--<maven.compiler.target>1.8</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <target>11</target>
-                    <source>11</source>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -32,6 +32,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <!-- <threadCount>10</threadCount> use este ou o de baixo -->
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -40,12 +45,12 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
+            <artifactId>hamcrest-all</artifactId>
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
@@ -58,6 +63,23 @@
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>3.0.0-M3</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
         </plugins>
     </reporting>
 </project>
+
+<!-- 
+    Javadoc Hamcrest: http://hamcrest.org/JavaHamcrest/javadoc/1.3/
+    Matchers API: http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html
+-->
+<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
+<dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest-all</artifactId>
+    <version>1.3</version>
+    <scope>test</scope>
+</dependency> -->
