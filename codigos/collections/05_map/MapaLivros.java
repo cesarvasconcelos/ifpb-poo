@@ -12,7 +12,7 @@ public class MapaLivros implements RepositórioLivros_IF {
     }
 
     @Override
-    public void addLivro( Livro l )  { mapa.put( l.getId(), l ); }
+    public void addLivro( Livro l )  { mapa.putIfAbsent( l.getId(), l ); }
 
     @Override
     public void apagarLivros()
