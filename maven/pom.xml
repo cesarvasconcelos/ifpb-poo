@@ -19,26 +19,29 @@
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
     </properties>
 
 
     <build>
         <plugins>
-        <!--    <plugin>-->
-        <!--        <groupId>org.apache.maven.plugins</groupId>-->
-        <!--        <artifactId>maven-compiler-plugin</artifactId>-->
-        <!--        <version>3.8.0</version>-->
-        <!--        <configuration>-->
-        <!--            <source>11</source>-->
-        <!--            <target>11</target>-->
-        <!--        </configuration>-->
-        <!--    </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <compilerArgs>
+                        <compilerArgument>-Xlint:unchecked</compilerArgument>
+                    </compilerArgs>
+                </configuration>                    
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.0</version>
                 <configuration>
+                    <finalName>myapp</finalName>    
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
@@ -46,8 +49,7 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
-
+            </plugin>   
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
