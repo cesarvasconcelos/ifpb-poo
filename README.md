@@ -15,10 +15,10 @@ Outras fontes de leitura serão indicadas pelo professor.
 
 ## Pré-requisitos
 
-- [Java Platform, Standard Edition](http://www.oracle.com/technetwork/java/javase/downloads/index.html) e/ou [Open Java Development Kit](http://openjdk.java.net/)
+- *Open Java Development Kit* - OpenJDK (e.g., [Amazon Correto](https://aws.amazon.com/pt/corretto/) ou [AdoptOpenJDK](https://adoptopenjdk.net/))
 - Um ambiente integrado de desenvolvimento (e.g., [IntelliJ IDEA](https://www.jetbrains.com/idea/), [NetBeans](https://netbeans.org/) ou [Eclipse](https://www.eclipse.org/))
 - ou até um editor de texto (e.g., [Visual Code](https://code.visualstudio.com/) ou [Sublime](https://www.sublimetext.com/))
-- Uma ferramenta para automação de *builds* (e.g., [Maven](https://maven.apache.org), preferencialmente, ou até o [Ant](https://ant.apache.org/))
+- Uma ferramenta para automação de *builds* (e.g., [Apache Maven](https://maven.apache.org), preferencialmente, ou até o [Apache Ant](https://ant.apache.org/))
 
 ## Instalação
 
